@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ЗНАКТЕХ — Автоматизация промышленных предприятий</title>
+<meta name="description" content="Комплексные решения для маркировки, сериализации, управления производственными процессами, производства пластиковых карт и RFID-технологий.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ===== RESET ===== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+/* ===== TOKENS ===== */
+:root{
+  --background:#ffffff;
+  --foreground:hsl(224,43%,20%);
+  --card:#ffffff;
+  --primary:hsl(338,79%,42%);
+  --primary-foreground:#ffffff;
+  --muted:hsl(224,20%,55%);
+  --surface:hsl(210,40%,98%);
+  --border:hsl(214,32%,91%);
+  --shadow-card:0 0 0 1px rgba(0,0,0,.05),0 2px 4px rgba(0,0,0,.05),0 12px 24px rgba(0,0,0,.05);
+  --radius:0.75rem;
+}
+
+/* ===== BASE ===== */
+body{
+  font-family:'IBM Plex Sans',system-ui,sans-serif;
+  color:var(--foreground);
+  background:var(--background);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.6;
+}
+::selection{background:hsla(338,79%,42%,.1)}
+a{color:inherit;text-decoration:none;transition:color .2s}
+img{max-width:100%;height:auto;display:block}
+.mono{font-family:'IBM Plex Mono',monospace}
+.container{max-width:72rem;margin:0 auto;padding-left:1.5rem;padding-right:1.5rem}
+
+/* ===== NAV ===== */
+.nav{
+  position:sticky;top:0;z-index:50;
+  background:rgba(255,255,255,.8);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+}
+.nav .container{height:5rem;display:flex;align-items:center;justify-content:space-between}
+.nav-left{display:flex;align-items:center;gap:2rem}
+.nav-logo{height:2rem;width:auto}
+.nav-links{display:flex;gap:1.5rem;font-size:.875rem;font-weight:500;color:var(--muted)}
+.nav-links a:hover{color:var(--primary)}
+.nav-right{display:flex;align-items:center;gap:1.5rem}
+.nav-phone{font-size:.875rem;font-weight:500}
+.nav-phone:hover{color:var(--primary)}
+.btn{
+  display:inline-block;
+  background:var(--primary);color:var(--primary-foreground);
+  font-size:.875rem;font-weight:500;
+  padding:.625rem 1.25rem;border-radius:.5rem;
+  transition:all .2s;
+}
+.btn:hover{opacity:.9}
+.btn:active{transform:scale(.98)}
+.btn-lg{padding:1rem 2rem;border-radius:.75rem;font-size:1rem;font-weight:600}
+
+/* ===== HERO ===== */
+.hero{
+  position:relative;
+  padding:6rem 0;
+  background:url('img/hero-bg.jpg') center/cover no-repeat;
+}
+.hero-overlay{
+  position:absolute;inset:0;
+  background:rgba(255,255,255,.8);
+  backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px);
+}
+.hero .container{position:relative;z-index:1}
+.hero-content{max-width:48rem}
+.badge{
+  display:inline-block;
+  padding:.25rem .75rem;border-radius:9999px;
+  background:hsla(338,79%,42%,.1);color:var(--primary);
+  font-size:.75rem;font-weight:700;
+  letter-spacing:.05em;text-transform:uppercase;
+  margin-bottom:1.5rem;
+}
+.hero h1{
+  font-size:clamp(2rem,4.5vw,3.75rem);
+  font-weight:600;line-height:1.1;
+  letter-spacing:-.02em;
+  margin-bottom:2rem;
+  text-wrap:balance;
+}
+.hero p{
+  font-size:1.25rem;color:var(--muted);
+  line-height:1.6;margin-bottom:2.5rem;max-width:42rem;
+}
+
+/* ===== DIRECTIONS ===== */
+.directions{padding:6rem 0;background:var(--surface)}
+.section-title{font-size:1.875rem;font-weight:600;letter-spacing:-.02em;margin-bottom:1rem}
+.section-sub{font-size:1.125rem;color:var(--muted);margin-bottom:3rem;max-width:42rem}
+.grid5{display:grid;grid-template-columns:repeat(5,1fr);gap:1.5rem}
+.dir-card{
+  background:var(--card);padding:1.5rem;border-radius:1rem;
+  box-shadow:var(--shadow-card);
+  outline:1px solid rgba(0,0,0,.05);outline-offset:-1px;
+  display:flex;flex-direction:column;align-items:center;text-align:center;
+}
+.dir-card img{width:7rem;height:7rem;object-fit:contain;margin-bottom:1.25rem}
+.dir-card h3{font-size:1.125rem;font-weight:600;margin-bottom:.5rem}
+.dir-card p{font-size:.875rem;color:var(--muted);line-height:1.5}
+
+/* ===== ABOUT ===== */
+.about{padding:6rem 0;border-top:1px solid var(--border)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.about-text h2{font-size:1.875rem;font-weight:600;letter-spacing:-.02em;margin-bottom:1.5rem}
+.about-text p{font-size:1.125rem;color:var(--muted);line-height:1.6;margin-bottom:1rem}
+.about-text p:last-child{margin-bottom:0}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.stat{padding:1.5rem;background:var(--surface);border-radius:1rem;text-align:center}
+.stat-val{font-size:1.875rem;font-weight:600;color:var(--primary);margin-bottom:.25rem}
+.stat-label{font-size:.75rem;color:var(--muted);font-weight:500;text-transform:uppercase;letter-spacing:.05em}
+
+/* ===== FOOTER / CONTACT ===== */
+.footer{background:var(--foreground);color:var(--primary-foreground);padding:6rem 0}
+.footer h2{font-size:1.875rem;font-weight:600;letter-spacing:-.02em;margin-bottom:1rem}
+.footer .subtitle{color:rgba(255,255,255,.6);font-size:1.125rem;margin-bottom:3rem;max-width:32rem}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+.contact-heading{
+  display:flex;align-items:center;gap:.5rem;
+  font-size:1.125rem;font-weight:600;margin-bottom:1.5rem;
+}
+.contact-heading svg{color:var(--primary);width:20px;height:20px;stroke-width:1.5;fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round}
+.contact-row{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;margin-bottom:1rem}
+.contact-dept{color:rgba(255,255,255,.5);font-size:.875rem}
+.contact-val{font-size:.875rem;font-weight:500;white-space:nowrap}
+.contact-val:hover{color:var(--primary)}
+.bottom-bar{
+  margin-top:6rem;padding-top:2rem;
+  border-top:1px solid rgba(255,255,255,.1);
+  color:rgba(255,255,255,.4);font-size:.875rem;
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;
+}
+.bottom-loc{display:flex;align-items:center;gap:.5rem}
+.bottom-loc svg{width:14px;height:14px;stroke:currentColor;stroke-width:1.5;fill:none;stroke-linecap:round;stroke-linejoin:round}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:1024px){
+  .grid5{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:768px){
+  .nav-links,.btn-nav{display:none!important}
+  .grid5{grid-template-columns:repeat(2,1fr)}
+  .about-grid{grid-template-columns:1fr;gap:2.5rem}
+  .contact-grid{grid-template-columns:1fr}
+  .hero{padding:4rem 0}
+  .directions,.about,.footer{padding:4rem 0}
+}
+@media(max-width:480px){
+  .grid5{grid-template-columns:1fr}
+  .stats{grid-template-columns:1fr}
+  .contact-row{flex-direction:column;gap:.25rem}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="container">
+    <div class="nav-left">
+      <img src="img/logo-znaktech.svg" alt="ZnakTech" class="nav-logo">
+      <div class="nav-links">
+        <a href="#directions">Направления</a>
+        <a href="#about">О компании</a>
+        <a href="#contact">Контакты</a>
+      </div>
+    </div>
+    <div class="nav-right">
+      <a href="tel:+74959953301" class="nav-phone mono">+7 (495) 995-33-01</a>
+      <a href="#contact" class="btn btn-nav">Связаться</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-overlay"></div>
+  <div class="container">
+    <div class="hero-content">
+      <span class="badge">Промышленная идентификация</span>
+      <h1>Автоматизация промышленных предприятий и технологии идентификации данных.</h1>
+      <p>Комплексные решения для маркировки, сериализации, управления производственными процессами, производства пластиковых карт, удостоверений и RFID-технологий.</p>
+      <a href="#contact" class="btn btn-lg">Получить консультацию</a>
+    </div>
+  </div>
+</section>
+
+<!-- DIRECTIONS -->
+<section id="directions" class="directions">
+  <div class="container">
+    <h2 class="section-title">Направления деятельности</h2>
+    <p class="section-sub">Полный комплекс решений для промышленной маркировки, идентификации и автоматизации производств.</p>
+    <div class="grid5">
+      <div class="dir-card">
+        <img src="img/ic-equipment.png" alt="Оборудование">
+        <h3>Оборудование</h3>
+        <p>Принтеры для любых поверхностей и скоростей.</p>
+      </div>
+      <div class="dir-card">
+        <img src="img/ic-consumables.png" alt="Расходные материалы">
+        <h3>Расходные материалы</h3>
+        <p>Чернила, растворители, риббоны и картриджи.</p>
+      </div>
+      <div class="dir-card">
+        <img src="img/ic-spare-parts.png" alt="Запасные части">
+        <h3>Запасные части</h3>
+        <p>Запчасти, головки, электроника. Сервис с 2004 г.</p>
+      </div>
+      <div class="dir-card">
+        <img src="img/ic-software.png" alt="Программное обеспечение">
+        <h3>Программное обеспечение</h3>
+        <p>ЗНАК.L2–L4, облачные и локальные решения.</p>
+      </div>
+      <div class="dir-card">
+        <img src="img/ic-chestnyznak.png" alt="Честный ЗНАК">
+        <h3>Честный ЗНАК</h3>
+        <p>Внедрение маркировки под ключ для ЦРПТ.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text">
+        <h2>О компании</h2>
+        <p>ЗНАКТЕХ — эксперт в области промышленной автоматизации и маркировки. Мы помогаем предприятиям соответствовать современным стандартам прослеживаемости и обязательной маркировки.</p>
+        <p>Наша команда объединяет инженеров и разработчиков ПО для создания отказоустойчивых систем, которые работают в режиме 24/7 на крупнейших заводах страны. Работаем с пищевой, лёгкой, фармацевтической и строительной отраслями.</p>
+        <p>Поставляем, настраиваем и сопровождаем решения под «Честный знак» и внутренние задачи предприятий — быстро, грамотно, с гарантией результата.</p>
+      </div>
+      <div class="stats">
+        <div class="stat"><div class="stat-val mono">20+</div><div class="stat-label">Лет опыта</div></div>
+        <div class="stat"><div class="stat-val mono">500+</div><div class="stat-label">Проектов</div></div>
+        <div class="stat"><div class="stat-val mono">15+</div><div class="stat-label">Отраслей</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT / FOOTER -->
+<footer id="contact" class="footer">
+  <div class="container">
+    <h2>Контакты</h2>
+    <p class="subtitle">Свяжитесь с нами — наш технический специалист ответит в течение рабочего дня.</p>
+
+    <div class="contact-grid">
+      <!-- Phones -->
+      <div>
+        <h3 class="contact-heading">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Телефоны
+        </h3>
+        <div class="contact-row"><span class="contact-dept">Главный офис</span><a href="tel:+74959953301" class="contact-val mono">+7 (495) 995-33-01</a></div>
+        <div class="contact-row"><span class="contact-dept">Автоматизация и Честный знак</span><a href="tel:+74959953305" class="contact-val mono">+7 (495) 995-33-05</a></div>
+        <div class="contact-row"><span class="contact-dept">Пластиковые карты и RFID</span><a href="tel:+74959953307" class="contact-val mono">+7 (495) 995-33-07</a></div>
+        <div class="contact-row"><span class="contact-dept">Оборудование и расходные материалы</span><a href="tel:+74959953310" class="contact-val mono">+7 (495) 995-33-10</a></div>
+        <div class="contact-row"><span class="contact-dept">Сервисная служба</span><a href="tel:+74959953338" class="contact-val mono">+7 (495) 995-33-38</a></div>
+      </div>
+
+      <!-- Emails -->
+      <div>
+        <h3 class="contact-heading">
+          <svg viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          Email
+        </h3>
+        <div class="contact-row"><span class="contact-dept">Главный офис</span><a href="mailto:info@znaktech.ru" class="contact-val">info@znaktech.ru</a></div>
+        <div class="contact-row"><span class="contact-dept">Автоматизация и Честный знак</span><a href="mailto:sales@znaktech.ru" class="contact-val">sales@znaktech.ru</a></div>
+        <div class="contact-row"><span class="contact-dept">Пластиковые карты и RFID</span><a href="mailto:cards@znaktech.ru" class="contact-val">cards@znaktech.ru</a></div>
+        <div class="contact-row"><span class="contact-dept">Сервисная служба</span><a href="mailto:service@znaktech.ru" class="contact-val">service@znaktech.ru</a></div>
+        <div class="contact-row"><span class="contact-dept">ПО поддержка</span><a href="mailto:help@znaktech.ru" class="contact-val">help@znaktech.ru</a></div>
+      </div>
+    </div>
+
+    <div class="bottom-bar">
+      <div class="bottom-loc">
+        <svg viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span>Москва, Россия</span>
+      </div>
+      <p>&copy; 2026 ЗНАКТЕХ. Все права защищены.</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
