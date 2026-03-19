@@ -1,37 +1,37 @@
-import { Phone, Mail, MapPin, Barcode, Settings, Cpu, Wrench, Palette, Code } from "lucide-react";
+import { Phone, Mail, MapPin } from "lucide-react";
 import logo from "@/assets/logo-znaktech.svg";
 import heroBg from "@/assets/hero-bg.jpg";
+import icEquipment from "@/assets/ic-equipment.png";
+import icConsumables from "@/assets/ic-consumables.png";
+import icSpareParts from "@/assets/ic-spare-parts.png";
+import icSoftware from "@/assets/ic-software.png";
+import icChestnyZnak from "@/assets/ic-chestnyznak.png";
 
 const directions = [
   {
-    icon: Barcode,
-    title: "Оборудование для маркировки",
+    img: icEquipment,
+    title: "Оборудование",
     desc: "Лазерные, каплеструйные, термоструйные, пьезоструйные и термотрансферные принтеры для любых типов поверхностей и скоростей.",
   },
   {
-    icon: Settings,
-    title: "Честный ЗНАК",
-    desc: "Полный цикл внедрения системы обязательной маркировки под ключ — от печати кода до отчёта в ЦРПТ. Интеграция с 1С и MES.",
+    img: icConsumables,
+    title: "Расходные материалы",
+    desc: "Чернила, растворители, очистители, разбавители, риббоны, ролики и картриджи для всех типов маркираторов.",
   },
   {
-    icon: Cpu,
-    title: "Автоматизация производства",
-    desc: "Разработка ПО и интеграция конвейерных систем маркировки, агрегации, верификации и отбраковки в существующие линии.",
+    img: icSpareParts,
+    title: "Запасные части",
+    desc: "Общие запчасти, гидросистема, печатающие головки, электроника. Сервис и ремонт с 2004 года.",
   },
   {
-    icon: Palette,
-    title: "Пластиковые карты и RFID",
-    desc: "Оборудование и расходные материалы для производства пластиковых карт, удостоверений и RFID-меток.",
-  },
-  {
-    icon: Wrench,
-    title: "Расходные материалы и сервис",
-    desc: "Чернила, растворители, риббоны, запасные части. Сервисное обслуживание и ремонт оборудования с 2004 года.",
-  },
-  {
-    icon: Code,
+    img: icSoftware,
     title: "Программное обеспечение",
     desc: "Собственные решения ЗНАК.L2, ЗНАК.L3, ЗНАК.L4 для автоматизации маркировки, облачные и локальные комплексы.",
+  },
+  {
+    img: icChestnyZnak,
+    title: "Честный ЗНАК",
+    desc: "Полный цикл внедрения системы обязательной маркировки под ключ — от печати кода до отчёта в ЦРПТ.",
   },
 ];
 
@@ -116,14 +116,12 @@ const Index = () => {
           <p className="text-muted text-lg mb-12 max-w-2xl">
             Полный комплекс решений для промышленной маркировки, идентификации и автоматизации производств.
           </p>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
             {directions.map((d) => (
-              <div key={d.title} className="bg-card p-8 rounded-2xl card-shadow inner-outline flex flex-col">
-                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-6 text-primary">
-                  <d.icon size={24} strokeWidth={1.5} />
-                </div>
-                <h3 className="text-xl font-semibold mb-3">{d.title}</h3>
-                <p className="text-muted leading-relaxed">{d.desc}</p>
+              <div key={d.title} className="bg-card p-6 rounded-2xl card-shadow inner-outline flex flex-col items-center text-center">
+                <img src={d.img} alt={d.title} className="w-20 h-20 object-contain mb-5" />
+                <h3 className="text-lg font-semibold mb-2">{d.title}</h3>
+                <p className="text-muted text-sm leading-relaxed">{d.desc}</p>
               </div>
             ))}
           </div>
