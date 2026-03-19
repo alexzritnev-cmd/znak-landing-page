@@ -86,8 +86,9 @@ const Index = () => {
       </nav>
 
       {/* Hero */}
-      <section className="py-24 px-6 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${heroBg})` }}>
-        <div className="max-w-6xl mx-auto">
+      <section className="relative py-24 px-6 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${heroBg})` }}>
+        <div className="absolute inset-0 bg-background/80 backdrop-blur-[2px]" />
+        <div className="relative max-w-6xl mx-auto">
           <div className="max-w-3xl">
             <span className="inline-block py-1 px-3 rounded-full bg-primary/10 text-primary text-xs font-bold tracking-wider uppercase mb-6">
               Промышленная идентификация
