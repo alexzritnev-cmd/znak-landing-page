@@ -1,5 +1,6 @@
 import { Phone, Mail, MapPin, Barcode, Settings, Cpu, Wrench, Palette, Code } from "lucide-react";
 import logo from "@/assets/logo-znaktech.svg";
+import heroBg from "@/assets/hero-bg.jpg";
 
 const directions = [
   {
