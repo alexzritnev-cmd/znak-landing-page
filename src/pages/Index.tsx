@@ -119,7 +119,7 @@ const Index = () => {
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
             {directions.map((d) => (
               <div key={d.title} className="bg-card p-6 rounded-2xl card-shadow inner-outline flex flex-col items-center text-center">
-                <img src={d.img} alt={d.title} className="w-20 h-20 object-contain mb-5" />
+                <img src={d.img} alt={d.title} className="w-28 h-28 object-contain mb-5" />
                 <h3 className="text-lg font-semibold mb-2">{d.title}</h3>
                 <p className="text-muted text-sm leading-relaxed">{d.desc}</p>
               </div>
