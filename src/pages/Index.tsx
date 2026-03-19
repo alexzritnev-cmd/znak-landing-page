@@ -116,14 +116,12 @@ const Index = () => {
           <p className="text-muted text-lg mb-12 max-w-2xl">
             Полный комплекс решений для промышленной маркировки, идентификации и автоматизации производств.
           </p>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
             {directions.map((d) => (
-              <div key={d.title} className="bg-card p-8 rounded-2xl card-shadow inner-outline flex flex-col">
-                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-6 text-primary">
-                  <d.icon size={24} strokeWidth={1.5} />
-                </div>
-                <h3 className="text-xl font-semibold mb-3">{d.title}</h3>
-                <p className="text-muted leading-relaxed">{d.desc}</p>
+              <div key={d.title} className="bg-card p-6 rounded-2xl card-shadow inner-outline flex flex-col items-center text-center">
+                <img src={d.img} alt={d.title} className="w-20 h-20 object-contain mb-5" />
+                <h3 className="text-lg font-semibold mb-2">{d.title}</h3>
+                <p className="text-muted text-sm leading-relaxed">{d.desc}</p>
               </div>
             ))}
           </div>
