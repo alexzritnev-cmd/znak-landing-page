@@ -11,27 +11,27 @@ const directions = [
   {
     img: icEquipment,
     title: "Оборудование",
-    desc: "Лазерные, каплеструйные, термоструйные, пьезоструйные и термотрансферные принтеры для любых типов поверхностей и скоростей.",
+    desc: "Принтеры для любых поверхностей и скоростей.",
   },
   {
     img: icConsumables,
     title: "Расходные материалы",
-    desc: "Чернила, растворители, очистители, разбавители, риббоны, ролики и картриджи для всех типов маркираторов.",
+    desc: "Чернила, растворители, риббоны и картриджи.",
   },
   {
     img: icSpareParts,
     title: "Запасные части",
-    desc: "Общие запчасти, гидросистема, печатающие головки, электроника. Сервис и ремонт с 2004 года.",
+    desc: "Запчасти, головки, электроника. Сервис с 2004 г.",
   },
   {
     img: icSoftware,
     title: "Программное обеспечение",
-    desc: "Собственные решения ЗНАК.L2, ЗНАК.L3, ЗНАК.L4 для автоматизации маркировки, облачные и локальные комплексы.",
+    desc: "ЗНАК.L2–L4, облачные и локальные решения.",
   },
   {
     img: icChestnyZnak,
     title: "Честный ЗНАК",
-    desc: "Полный цикл внедрения системы обязательной маркировки под ключ — от печати кода до отчёта в ЦРПТ.",
+    desc: "Внедрение маркировки под ключ для ЦРПТ.",
   },
 ];
 
@@ -119,7 +119,7 @@ const Index = () => {
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
             {directions.map((d) => (
               <div key={d.title} className="bg-card p-6 rounded-2xl card-shadow inner-outline flex flex-col items-center text-center">
-                <img src={d.img} alt={d.title} className="w-20 h-20 object-contain mb-5" />
+                <img src={d.img} alt={d.title} className="w-28 h-28 object-contain mb-5" />
                 <h3 className="text-lg font-semibold mb-2">{d.title}</h3>
                 <p className="text-muted text-sm leading-relaxed">{d.desc}</p>
               </div>
