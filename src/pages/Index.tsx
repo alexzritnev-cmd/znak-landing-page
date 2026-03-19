@@ -1,5 +1,6 @@
 import { Phone, Mail, MapPin, Barcode, Settings, Cpu, Wrench, Palette, Code } from "lucide-react";
 import logo from "@/assets/logo-znaktech.svg";
+import heroBg from "@/assets/hero-bg.jpg";
 
 const directions = [
   {
@@ -85,7 +86,7 @@ const Index = () => {
       </nav>
 
       {/* Hero */}
-      <section className="py-24 px-6">
+      <section className="py-24 px-6 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${heroBg})` }}>
         <div className="max-w-6xl mx-auto">
           <div className="max-w-3xl">
             <span className="inline-block py-1 px-3 rounded-full bg-primary/10 text-primary text-xs font-bold tracking-wider uppercase mb-6">
