@@ -1,37 +1,37 @@
-import { Phone, Mail, MapPin, Barcode, Settings, Cpu, Wrench, Palette, Code } from "lucide-react";
+import { Phone, Mail, MapPin } from "lucide-react";
 import logo from "@/assets/logo-znaktech.svg";
 import heroBg from "@/assets/hero-bg.jpg";
+import icEquipment from "@/assets/ic-equipment.png";
+import icConsumables from "@/assets/ic-consumables.png";
+import icSpareParts from "@/assets/ic-spare-parts.png";
+import icSoftware from "@/assets/ic-software.png";
+import icChestnyZnak from "@/assets/ic-chestnyznak.png";
 
 const directions = [
   {
-    icon: Barcode,
-    title: "Оборудование для маркировки",
+    img: icEquipment,
+    title: "Оборудование",
     desc: "Лазерные, каплеструйные, термоструйные, пьезоструйные и термотрансферные принтеры для любых типов поверхностей и скоростей.",
   },
   {
-    icon: Settings,
-    title: "Честный ЗНАК",
-    desc: "Полный цикл внедрения системы обязательной маркировки под ключ — от печати кода до отчёта в ЦРПТ. Интеграция с 1С и MES.",
+    img: icConsumables,
+    title: "Расходные материалы",
+    desc: "Чернила, растворители, очистители, разбавители, риббоны, ролики и картриджи для всех типов маркираторов.",
   },
   {
-    icon: Cpu,
-    title: "Автоматизация производства",
-    desc: "Разработка ПО и интеграция конвейерных систем маркировки, агрегации, верификации и отбраковки в существующие линии.",
+    img: icSpareParts,
+    title: "Запасные части",
+    desc: "Общие запчасти, гидросистема, печатающие головки, электроника. Сервис и ремонт с 2004 года.",
   },
   {
-    icon: Palette,
-    title: "Пластиковые карты и RFID",
-    desc: "Оборудование и расходные материалы для производства пластиковых карт, удостоверений и RFID-меток.",
-  },
-  {
-    icon: Wrench,
-    title: "Расходные материалы и сервис",
-    desc: "Чернила, растворители, риббоны, запасные части. Сервисное обслуживание и ремонт оборудования с 2004 года.",
-  },
-  {
-    icon: Code,
+    img: icSoftware,
     title: "Программное обеспечение",
     desc: "Собственные решения ЗНАК.L2, ЗНАК.L3, ЗНАК.L4 для автоматизации маркировки, облачные и локальные комплексы.",
+  },
+  {
+    img: icChestnyZnak,
+    title: "Честный ЗНАК",
+    desc: "Полный цикл внедрения системы обязательной маркировки под ключ — от печати кода до отчёта в ЦРПТ.",
   },
 ];
 
